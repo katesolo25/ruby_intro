@@ -17,6 +17,8 @@ bitcoin_data = JSON.parse(response)
 # Using the Ruby hash `bitcoin_data`, display a summary of
 # Bitcoin data for the user. Something like the output below.
 
+USD_rate = bitcoin_data['bpi']['USD']['rate_float']
+
 # Sample output:
 # 1 Bitcoin is valued at $41405.1046 USD.
 # Your Bitcoin is worth $62107.6569.
@@ -27,6 +29,8 @@ bitcoin = gets.chomp
 
 # 2. The value will be a string, so you'll want to convert it to a Float.
 bitcoin = bitcoin.to_f
-
+bitcoin_value = bitcoin * USD_rate
 # 3. inspect the bitcoin_data hash
 # puts bitcoin_data
+puts "1 Bitcoin is valued at $#{USD_rate}"
+puts "Your bitcoin is worth $#{bitcoin_value}"
